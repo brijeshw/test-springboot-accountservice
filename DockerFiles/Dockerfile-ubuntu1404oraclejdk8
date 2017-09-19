@@ -1,0 +1,23 @@
+FROM ubuntu:14.04
+
+MAINTAINER Brijesh Walia "brijeshw@mt.com"
+
+RUN apt-get update && \
+	apt-get install -y python-software-properties && \ 
+	apt-get install -y software-properties-common && \ 
+	apt-add-repository -y ppa:webupd8team/java && \ 
+	apt-get update && \ 
+	echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+	apt-get install -y oracle-java8-installer && \ 
+	apt install -y oracle-java8-set-default
+
+RUN apt-get install -y wget
+
+RUN apt-get install -y git
+
+RUN apt-get install -y maven
+
+RUN apt-get clean
+
+WORKDIR ./microservice
+
