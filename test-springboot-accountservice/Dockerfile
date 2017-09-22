@@ -2,18 +2,22 @@ FROM brijeshw/ubuntu1404oraclejdk8
 
 MAINTAINER Brijesh Walia "https://hub.docker.com/r/brijeshw"
 
-WORKDIR ./microservice
+VOLUME /tmp
 
-RUN git clone -b docker https://github.com/brijeshw/test-springboot-accountservice.git ./servicesource
+RUN git clone https://github.com/brijeshw/test-springboot-accountservice.git
 
-RUN cd ./servicesource/test-springboot-accountservice
+RUN mkdir /microservice
 
-RUN mvn package 
+RUN cp -R test-springboot-accountservice /microservice
 
-ADD  ./target/test-springboot-accountservice.jar ./service/
+RUN mvn -f /test-springboot-accountservice/test-springboot-accountservice/pom.xml package
 
 EXPOSE 8080
 
-CMD java -jar ./service/test-springboot-accountservice.jar
+RUN sh -c 'touch  /test-springboot-accountservice/test-springboot-accountservice/target/test-springboot-accountservice.jar'
+
+ENTRYPOINT ["java","-jar","/test-springboot-accountservice/test-springboot-accountservice/target/test-springboot-accountservice.jar"]
+
+
 
 
