@@ -10,7 +10,7 @@ RUN git clone https://github.com/brijeshw/test-springboot-accountservice.git
 
 #RUN cp -R test-springboot-customerservice /microservice
 
-RUN mvn -f test-springboot-accountservice/test-springboot-customerservice/pom.xml packagedocker:build
+RUN mvn -f test-springboot-accountservice/test-springboot-customerservice/pom.xml package
 
 EXPOSE 8080
 
