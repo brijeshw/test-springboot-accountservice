@@ -12,7 +12,7 @@ RUN git clone https://github.com/brijeshw/test-springboot-accountservice.git
 
 RUN mvn -f test-springboot-accountservice/test-springboot-customerservice/pom.xml package
 
-EXPOSE 8080
+EXPOSE 9090
 
 RUN sh -c 'touch test-springboot-accountservice/test-springboot-customerservice/target/test-springboot-customerservice.jar'
 

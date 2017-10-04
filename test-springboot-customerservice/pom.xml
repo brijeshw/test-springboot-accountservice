@@ -55,12 +55,13 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.19.0</version>
@@ -79,7 +80,7 @@
                         </image>
                     </images>
                 </configuration>
-            </plugin>
+            </plugin> -->
 		</plugins>
 	</build>
 
